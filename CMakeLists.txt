@@ -9,7 +9,9 @@ add_executable(Recherche
         main.cpp
         header/dft.h src/dft.cpp
         header/filter/filter.h src/filter/filter.cpp
-        header/filter/ideal_filter.h src/filter/ideal_filter.cpp)
+        header/filter/low_pass_filter.h src/filter/low_pass_filter.cpp
+        src/filter/high_pass_filter.cpp header/filter/high_pass_filter.h
+        )
 
 # Additional Include Directories
 include_directories( ${OpenCV_INCLUDE_DIRS} header header/filter )

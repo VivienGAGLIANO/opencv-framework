@@ -3,7 +3,8 @@
 #include <opencv2/highgui.hpp>
 
 #include "dft.h"
-#include "filter/ideal_filter.h"
+#include "low_pass_filter.h"
+#include "high_pass_filter.h"
 
 using namespace cv;
 
@@ -44,9 +45,13 @@ int main(int argc, char ** argv)
     forward_dft(I, ft);
 
     // Do some filtering stuff
-    IdealFilter filter(I.size(), 50);
-    filter.filter(ft, ft);
-    filter.display();
+//    LowPassFilter lp(I.size(), 50);
+//    lp.filter(ft, ft);
+//    lp.display();
+
+    HighPassFilter hp(I.size(), 10);
+    hp.display();
+    hp.filter(ft, ft);
 
     display_amplitude_phase(ft);
 
