@@ -7,6 +7,7 @@ using namespace cv;
 
 enum filterType
 {
+    PRODUCT=-1,
     LOW_PASS=0,
     HIGH_PASS=1,
     BANDPASS=2,
@@ -16,17 +17,16 @@ enum filterType
 class Filter
 {
 public:
-    Filter(const Size& size, filterType type);
-
     void filter(Mat& src, Mat& dst);
     void display();
 
+    Filter* operator *(const Filter& a) const;
 
 protected:
     Mat H;
     filterType type;
 
-    virtual ~Filter() = 0;
+    Filter(const Size& size, filterType type);
 };
 
 #endif //RECHERCHE_FILTER_H

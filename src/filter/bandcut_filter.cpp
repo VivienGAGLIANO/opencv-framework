@@ -1,6 +1,6 @@
 #include "bandcut_filter.h"
 
-BandcutFilter::BandcutFilter(const Size &size, float lower_frequency, float upper_frequency) : Filter(size, filterType::BANDPASS), low_freq(min(lower_frequency, upper_frequency)), up_freq(max(lower_frequency, upper_frequency))
+BandcutFilter::BandcutFilter(const Size &size, float lower_frequency, float upper_frequency) : Filter(size, filterType::BANDCUT), low_freq(min(lower_frequency, upper_frequency)), up_freq(max(lower_frequency, upper_frequency))
 {
     fill_transfer_function();
 }

@@ -1,3 +1,4 @@
+#include <iostream>
 #include <opencv2/highgui.hpp>
 
 #include "filter.h"
@@ -44,4 +45,16 @@ void Filter::display()
     waitKey(0);
 }
 
-Filter::~Filter() = default;
+Filter *Filter::operator*(const Filter &a) const
+{
+    if (a.H.size() != H.size())
+    {
+        std::cout << "Filters have non-compatible sizes.\n";
+        return nullptr;
+    }
+
+    Filter *p = new Filter(H.size(), filterType::PRODUCT);
+    p->H = this->H.mul(a.H);
+
+    return p;
+}
