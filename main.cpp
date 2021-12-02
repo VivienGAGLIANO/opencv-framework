@@ -5,6 +5,8 @@
 #include "dft.h"
 #include "low_pass_filter.h"
 #include "high_pass_filter.h"
+#include "bandpass_filter.h"
+#include "bandcut_filter.h"
 
 using namespace cv;
 
@@ -49,9 +51,17 @@ int main(int argc, char ** argv)
 //    lp.filter(ft, ft);
 //    lp.display();
 
-    HighPassFilter hp(I.size(), 10);
-    hp.display();
-    hp.filter(ft, ft);
+//    HighPassFilter hp(I.size(), 10);
+//    hp.display();
+//    hp.filter(ft, ft);
+
+//    BandpassFilter bp(I.size(), 20, 150);
+//    bp.display();
+//    bp.filter(ft, ft);
+
+    BandcutFilter bc(I.size(), 30, 150);
+    bc.display();
+    bc.filter(ft, ft);
 
     display_amplitude_phase(ft);
 

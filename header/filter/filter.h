@@ -9,6 +9,8 @@ enum filterType
 {
     LOW_PASS=0,
     HIGH_PASS=1,
+    BANDPASS=2,
+    BANDCUT=3,
 };
 
 class Filter

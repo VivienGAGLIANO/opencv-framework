@@ -11,7 +11,8 @@ add_executable(Recherche
         header/filter/filter.h src/filter/filter.cpp
         header/filter/low_pass_filter.h src/filter/low_pass_filter.cpp
         src/filter/high_pass_filter.cpp header/filter/high_pass_filter.h
-        )
+        header/filter/bandpass_filter.h src/filter/bandpass_filter.cpp
+        src/filter/bandcut_filter.cpp header/filter/bandcut_filter.h)
 
 # Additional Include Directories
 include_directories( ${OpenCV_INCLUDE_DIRS} header header/filter )
