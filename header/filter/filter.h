@@ -12,6 +12,7 @@ enum filterType
     HIGH_PASS=1,
     BANDPASS=2,
     BANDCUT=3,
+    LOG_GABOR=4,
 };
 
 class Filter

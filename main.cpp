@@ -7,6 +7,7 @@
 #include "high_pass_filter.h"
 #include "bandpass_filter.h"
 #include "bandcut_filter.h"
+#include "log_gabor_filter.h"
 
 using namespace cv;
 
@@ -57,11 +58,19 @@ int main(int argc, char ** argv)
 
 //    BandpassFilter bp(I.size(), 20, 150);
 //    bp.display();
-//    bp.filter(ft, ft);
+////    bp.filter(ft, ft);
+//
+//    BandcutFilter bc(I.size(), 30, 150);
+//    bc.display();
+////    bc.filter(ft, ft);
+//
+//    Filter *p = bp*bc;
+//    p->display();
+//    p->filter(ft, ft);
 
-    BandcutFilter bc(I.size(), 30, 150);
-    bc.display();
-    bc.filter(ft, ft);
+    LogGaborFilter lg(I.size(), 5, .3f);
+    lg.display();
+    lg.filter(ft, ft);
 
     display_amplitude_phase(ft);
 
