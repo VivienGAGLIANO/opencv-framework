@@ -7,7 +7,8 @@ using namespace cv;
 
 enum filterType
 {
-    IDEAL=0,
+    LOW_PASS=0,
+    HIGH_PASS=1,
 };
 
 class Filter

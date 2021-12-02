@@ -7,7 +7,7 @@ using namespace cv;
 
 Filter::Filter(const Size& size, filterType type) : type(type)
 {
-    H = Mat(size, CV_32F, Scalar(1));
+    H = Mat(size, CV_32F, Scalar(0));
 }
 
 
@@ -32,7 +32,7 @@ void Filter::display()
     std::string name;
     switch (type)
     {
-        case filterType::IDEAL:
+        case filterType::LOW_PASS:
             name = "Ideal filter";
             break;
 
