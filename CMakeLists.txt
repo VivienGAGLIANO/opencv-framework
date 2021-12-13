@@ -14,7 +14,7 @@ add_executable(Recherche
         header/filter/bandpass_filter.h src/filter/bandpass_filter.cpp
         header/filter/bandcut_filter.h src/filter/bandcut_filter.cpp
         header/filter/log_gabor_filter.h src/filter/log_gabor_filter.cpp
-        )
+        header/pyramids/gaussian_pyramid.h src/pyramids/gaussian_pyramid.cpp)
 
 # Additional Include Directories
 include_directories( ${OpenCV_INCLUDE_DIRS} header header/filter )
