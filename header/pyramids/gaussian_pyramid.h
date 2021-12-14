@@ -16,8 +16,9 @@ public:
 private:
 
     void construct_pyramid();
-    void expand();
-    cv::Mat reduce(const cv::Mat& prev);
+    cv::Mat reconstruct_image();
+//    void expand();
+//    cv::Mat reduce(const cv::Mat& prev);
 };
 
 #endif //RECHERCHE_GAUSSIAN_PYRAMID_H

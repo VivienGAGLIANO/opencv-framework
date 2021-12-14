@@ -17,7 +17,7 @@ add_executable(Recherche
         header/pyramids/gaussian_pyramid.h src/pyramids/gaussian_pyramid.cpp)
 
 # Additional Include Directories
-include_directories( ${OpenCV_INCLUDE_DIRS} header header/filter )
+include_directories( ${OpenCV_INCLUDE_DIRS} header header/filter header/pyramids)
 
 # Additional Library Directories
 link_directories( ${OpenCV_LIB_DIR} )

@@ -8,6 +8,7 @@
 #include "bandpass_filter.h"
 #include "bandcut_filter.h"
 #include "log_gabor_filter.h"
+#include "gaussian_pyramid.h"
 
 using namespace cv;
 
@@ -48,37 +49,20 @@ int main(int argc, char ** argv)
     forward_dft(I, ft);
 
     // Do some filtering stuff
-//    LowPassFilter lp(I.size(), 50);
-//    lp.filter(ft, ft);
-//    lp.display();
-
-//    HighPassFilter hp(I.size(), 10);
-//    hp.display();
-//    hp.filter(ft, ft);
-
-//    BandpassFilter bp(I.size(), 20, 150);
-//    bp.display();
-////    bp.filter(ft, ft);
-//
-//    BandcutFilter bc(I.size(), 30, 150);
-//    bc.display();
-////    bc.filter(ft, ft);
-//
-//    Filter *p = bp*bc;
-//    p->display();
-//    p->filter(ft, ft);
-
     LogGaborFilter lg(I.size(), 5, .3f);
-    lg.display();
+//    lg.display();
     lg.filter(ft, ft);
 
-    display_amplitude_phase(ft);
+//    display_amplitude_phase(ft);
 
     // Take invert Fourier transform
     Mat ift;
     inverse_dft(ft, ift);
-    imshow("Reconstructed image", ift);
-    waitKey(0);
+//    imshow("Reconstructed image", ift);
+//    waitKey(0);
+
+    GaussianPyramid pyramid(I, 3);
+    pyramid.display_layers();
 
     return EXIT_SUCCESS;
 }
