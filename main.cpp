@@ -9,6 +9,7 @@
 #include "bandcut_filter.h"
 #include "log_gabor_filter.h"
 #include "gaussian_pyramid.h"
+#include "laplacian_pyramid.h"
 
 using namespace cv;
 
@@ -61,8 +62,10 @@ int main(int argc, char ** argv)
 //    imshow("Reconstructed image", ift);
 //    waitKey(0);
 
-    GaussianPyramid pyramid(I, 3);
-    pyramid.display_layers();
+    LaplacianPyramid pyramid(I, 3);
+    pyramid.construct_pyramid();
+    pyramid.display_layers_gauss();
+    pyramid.display_layers_laplace();
 
     return EXIT_SUCCESS;
 }

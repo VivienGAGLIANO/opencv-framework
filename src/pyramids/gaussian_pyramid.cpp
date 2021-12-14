@@ -10,9 +10,8 @@ GaussianPyramid::GaussianPyramid(const cv::Mat& src, int depth) : depth(depth)
     if (depth > log(src.rows))
         throw std::out_of_range("Chosen image cannot be reduced to given depth.");
 
-    levels.reserve(depth);
-    levels.push_back(src.clone());
-    construct_pyramid();
+    layers_gauss.reserve(depth);
+    layers_gauss.push_back(src.clone());
 }
 
 void GaussianPyramid::construct_pyramid()
@@ -20,9 +19,9 @@ void GaussianPyramid::construct_pyramid()
     cv::Mat prev, next;
     for (int i = 0; i < depth; ++i)
     {
-        prev = levels.at(i);
-        cv::pyrDown(levels.at(i), next, cv::Size(prev.cols / 2, prev.rows / 2));
-        levels.push_back(next);
+        prev = layers_gauss.at(i);
+        cv::pyrDown(layers_gauss.at(i), next, cv::Size(prev.cols / 2, prev.rows / 2));
+        layers_gauss.push_back(next);
     }
 }
 
@@ -38,12 +37,11 @@ void GaussianPyramid::construct_pyramid()
 //    return next;
 //}
 
-void GaussianPyramid::display_layers()
+void GaussianPyramid::display_layers_gauss()
 {
-    for (int i = 0; i < depth; ++i)
-    {
-        cv::imshow("Pyramid layer " + std::to_string(i), levels.at(i));
-    }
+    for (int i = 0; i <= depth; ++i)
+        cv::imshow("Gauss pyramid layer " + std::to_string(i), layers_gauss.at(i));
+
     cv::waitKey(0);
 }
 
@@ -52,7 +50,7 @@ cv::Mat GaussianPyramid::reconstruct_image()
     cv::Mat output, prev;
     for (int i = 0; i < depth; ++i)
     {
-        // prev = levels.
+        // prev = layers_gauss.
     }
 }
 

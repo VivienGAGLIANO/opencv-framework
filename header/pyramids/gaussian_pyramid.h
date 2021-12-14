@@ -8,14 +8,14 @@ class GaussianPyramid
 {
 public:
     GaussianPyramid(const cv::Mat& src, int depth);
-    void display_layers();
+    virtual void construct_pyramid();
+    void display_layers_gauss();
 
     int depth;
-    std::vector<cv::Mat> levels;
+    std::vector<cv::Mat> layers_gauss;
 
-private:
+protected:
 
-    void construct_pyramid();
     cv::Mat reconstruct_image();
 //    void expand();
 //    cv::Mat reduce(const cv::Mat& prev);
