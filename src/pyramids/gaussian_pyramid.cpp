@@ -45,13 +45,13 @@ void GaussianPyramid::display_layers_gauss()
     cv::waitKey(0);
 }
 
-cv::Mat GaussianPyramid::reconstruct_image()
-{
-    cv::Mat output, prev;
-    for (int i = 0; i < depth; ++i)
-    {
-        // prev = layers_gauss.
-    }
-}
+// cv::Mat GaussianPyramid::reconstruct_image()
+// {
+//     cv::Mat output, prev;
+//     for (int i = 0; i < depth; ++i)
+//     {
+//         // prev = layers_gauss.
+//     }
+// }
 
 

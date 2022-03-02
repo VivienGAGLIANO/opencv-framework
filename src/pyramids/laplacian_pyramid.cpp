@@ -31,4 +31,18 @@ void LaplacianPyramid::display_layers_laplace()
     cv::waitKey(0);
 }
 
+cv::Mat LaplacianPyramid::reconstruct_image()
+{
+    cv::Mat m, prev = layers_laplace.back();
+
+    for (int i = depth-1; i >= 0; --i)
+    {
+        cv::pyrUp(prev, m, cv::Size(2 * prev.rows, 2 * prev.cols));
+        m += layers_laplace.at(i);
+        prev = m;
+    }
+
+    return m;
+}
+
 

@@ -16,7 +16,7 @@ public:
 
 protected:
 
-    cv::Mat reconstruct_image();
+    // cv::Mat reconstruct_image();
 //    void expand();
 //    cv::Mat reduce(const cv::Mat& prev);
 };

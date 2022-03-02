@@ -13,6 +13,7 @@ public:
     explicit LaplacianPyramid(const GaussianPyramid& gaussian_pyramid);
     void construct_pyramid() override;
     void display_layers_laplace();
+    cv::Mat reconstruct_image();
 
     std::vector<cv::Mat> layers_laplace;
 };

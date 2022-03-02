@@ -17,7 +17,7 @@ static void help(char ** argv)
 {
     std::cout << std::endl
          <<  "This program demonstrated the use of the discrete Fourier transform (DFT). " << std::endl
-         <<  "The dft of an image is taken and it's power spectrum is displayed."  << std::endl << std::endl
+         <<  "The dft of an image is taken and its power spectrum is displayed."  << std::endl << std::endl
          <<  "Usage:"                                                                      << std::endl
          << argv[0] << " [image_name -- default lena.jpg]" << std::endl << std::endl;
 }
@@ -64,8 +64,14 @@ int main(int argc, char ** argv)
 
     LaplacianPyramid pyramid(I, 3);
     pyramid.construct_pyramid();
-    pyramid.display_layers_gauss();
-    pyramid.display_layers_laplace();
+//    pyramid.display_layers_gauss();
+
+    lg = LogGaborFilter(pyramid.layers_laplace.at(2).size(), 5.f, .3f);
+    lg.filter(pyramid.layers_laplace.at(2), pyramid.layers_laplace.at(2));
+//    pyramid.display_layers_laplace();
+    imshow("Comparison Laplacian pyramid reconstruction vs og image", I - pyramid.reconstruct_image());
+    cv::waitKey(0);
+
 
     return EXIT_SUCCESS;
 }
