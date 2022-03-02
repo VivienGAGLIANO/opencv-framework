@@ -23,7 +23,7 @@ void Filter::filter(Mat& src, Mat& dst)
     planes_filtered[0] = H.mul(planes_dft[0]);
     planes_filtered[1] = H.mul(planes_dft[1]);
 
-    merge(planes_filtered, 2, dst);
+    merge(planes_filtered, src.channels(), dst);
 
     shift_image(H, H);
 }
